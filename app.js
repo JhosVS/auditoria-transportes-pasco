@@ -3,8 +3,8 @@ let evidencias = [
     {
         id: "H01",
         evidencia: "Los usuarios autenticados pueden utilizar las mismas funciones administrativas, sin distinción efectiva por rol.",
-        categoria: "A01 — Broken Access Control",
-        cercana: "A07 — Identification and Authentication Failures",
+        categoria: "A01 — Control de acceso deficiente",
+        cercana: "A07 — Fallas de identificación y autenticación",
         impacto: "Acceso y modificación de datos sin autorización según el rol.",
         justificacion: "Se identificó que los privilegios no están diferenciados por middleware o anotaciones en las rutas de Flask.",
         estado: "Identificado",
@@ -14,8 +14,8 @@ let evidencias = [
     {
         id: "H02",
         evidencia: "config.py contiene una clave secreta predeterminada (SECRET_KEY).",
-        categoria: "A02 — Security Misconfiguration",
-        cercana: "A05 — Injection / Hardcoded Credentials",
+        categoria: "A02 — Fallas criptográficas",
+        cercana: "A05 — Configuración de seguridad incorrecta",
         impacto: "Riesgo de falsificación o alteración de cookies de sesión firmadas si la clave secreta es expuesta.",
         justificacion: "Uso de credenciales/claves por defecto en archivos de configuración desplegados.",
         estado: "Por verificar",
@@ -25,8 +25,8 @@ let evidencias = [
     {
         id: "H03",
         evidencia: "No se ha implementado un registro general de acciones administrativas.",
-        categoria: "A09 — Security Logging and Alerting Failures",
-        cercana: "A01 — Broken Access Control",
+        categoria: "A09 — Fallas en el registro y monitoreo de seguridad",
+        cercana: "A01 — Control de acceso deficiente",
         impacto: "Dificultad para investigar incidentes, detectar accesos anómalos y realizar trazabilidad forense.",
         justificacion: "Ausencia de logs de auditoría estructurados ante cambios críticos en la base de datos de transportes.",
         estado: "Identificado",
@@ -36,8 +36,8 @@ let evidencias = [
     {
         id: "H04",
         evidencia: "No se ha identificado protección CSRF en los formularios POST revisados.",
-        categoria: "A01 — Broken Access Control",
-        cercana: "A02 — Security Misconfiguration",
+        categoria: "A01 — Control de acceso deficiente",
+        cercana: "A05 — Configuración de seguridad incorrecta",
         impacto: "Posibilidad de ejecutar acciones administrativas no deseadas mediante peticiones forjadas desde otros sitios.",
         justificacion: "Falta de tokens anti-CSRF (como Flask-WTF) en los formularios de gestión.",
         estado: "Por verificar",
@@ -47,7 +47,7 @@ let evidencias = [
     {
         id: "H07",
         evidencia: "Una prueba de reservas simultáneas impidió reservar un asiento ya ocupado.",
-        categoria: "A04 — Insecure Design",
+        categoria: "A04 — Diseño inseguro",
         cercana: "Sin riesgo",
         impacto: "Resultado favorable. Previene sobreventa o concurrencia inconsistente de asientos.",
         justificacion: "Control de concurrencia e integridad transaccional correcto a nivel de base de datos.",
